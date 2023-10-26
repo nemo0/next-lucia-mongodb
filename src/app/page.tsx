@@ -10,10 +10,20 @@ export default async function Home() {
   if (!session) redirect("/login");
   return (
     <main>
-      {session && (
+      {session ? (
         <div>
           <h1>Home</h1>
           <code>{JSON.stringify(session)}</code>
+        </div>
+      ) : (
+        <div>
+          <h1>Home</h1>
+          <p>
+            <a href="/login">Login</a>
+          </p>
+          <p>
+            <a href="/signup">Sign up</a>
+          </p>
         </div>
       )}
     </main>
